@@ -1,6 +1,6 @@
 import pool from "../config/db.js";
 
-// Создание таблицы (выполняется один раз при запуске)
+// Создание таблицы
 export const createOrderTable = async () => {
     const query = `
         CREATE TABLE IF NOT EXISTS orders (
@@ -32,10 +32,10 @@ export const createOrder = async ({ userId, items, amount, address }) => {
 
     const values = [
         userId,
-        JSON.stringify(items), // Преобразуем items в строку JSON
+        JSON.stringify(items),
         amount,
         address,
-        'В обработке', // Устанавливаем статус по умолчанию
+        'В обработке',
     ];
 
     const result = await pool.query(query, values);

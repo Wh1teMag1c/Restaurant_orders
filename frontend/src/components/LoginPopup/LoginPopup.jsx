@@ -3,6 +3,7 @@ import './LoginPopup.css'
 import {StoreContext} from "../../context/StoreContext.jsx";
 import axios from "axios"
 import {useContext, useState} from "react";
+import PropTypes from 'prop-types';
 
 const LoginPopup = ({setShowLogin}) => {
 
@@ -33,8 +34,7 @@ const LoginPopup = ({setShowLogin}) => {
             localStorage.setItem("token", response.data.token);
             window.location.reload();
             setShowLogin(false);
-        }
-        else{
+        } else {
             alert(response.data.message);
         }
     }
@@ -67,6 +67,10 @@ const LoginPopup = ({setShowLogin}) => {
             </form>
         </div>
     );
-}
+};
+
+LoginPopup.propTypes = {
+    setShowLogin: PropTypes.func.isRequired
+};
 
 export default LoginPopup;

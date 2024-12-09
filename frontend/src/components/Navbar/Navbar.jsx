@@ -3,10 +3,11 @@ import {assets} from '../../assets/assets'
 import {Link, useNavigate} from "react-router-dom";
 import {StoreContext} from "../../context/StoreContext.jsx";
 import {useContext, useState} from "react";
+import PropTypes from 'prop-types';
 
 const Navbar = ({setShowLogin}) => {
 
-    const {getTotalCartAmount, token, setToken, cartItems} = useContext(StoreContext)
+    const {getTotalCartAmount, token, setToken} = useContext(StoreContext)
 
     const [menu, setMenu] = useState("home");
 
@@ -59,6 +60,10 @@ const Navbar = ({setShowLogin}) => {
             </div>
         </div>
     )
-}
+};
+
+Navbar.propTypes = {
+    setShowLogin: PropTypes.func.isRequired,
+};
 
 export default Navbar

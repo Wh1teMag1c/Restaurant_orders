@@ -1,4 +1,4 @@
-import {createFood, getAllFood, deleteFoodById} from '../models/foodModel.js';
+import {createFood, deleteFoodById, getAllFood} from '../models/foodModel.js';
 import fs from 'fs';
 
 // Добавление блюда

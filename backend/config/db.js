@@ -1,6 +1,8 @@
 import pkg from 'pg';
-const { Pool } = pkg;
 import dotenv from 'dotenv';
+
+const {Pool} = pkg;
+
 dotenv.config();
 
 
@@ -14,7 +16,7 @@ const pool = new Pool({
 
 export const connectDB = async () => {
     try {
-        const res = await pool.query('SELECT NOW()'); // Проверка соединения
+        const res = await pool.query('SELECT NOW()');
         console.log("Database Connected:", res.rows[0]);
     } catch (error) {
         console.error("Database Connection Error: ", error.message);

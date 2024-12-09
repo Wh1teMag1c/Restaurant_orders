@@ -1,4 +1,4 @@
-.add{
+.add {
     width: 70%;
     margin-left: max(5vw, 25px);
     margin-top: 50px;
@@ -20,24 +20,24 @@
     font-size: 14px;
 }
 
-.order-item-food .order-item-name{
+.order-item-food .order-item-name {
     font-weight: 600;
 }
 
-.order-item img{
+.order-item img {
     width: 80px;
 }
 
-.order-item-name{
+.order-item-name {
     margin-top: 30px;
     margin-bottom: 5px;
 }
 
-.order-item-address, .order-item-phone{
+.order-item-address, .order-item-phone {
     margin-bottom: 8px;
 }
 
-.order-item select{
+.order-item select {
     background-color: white;
     border-radius: 10px;
     border: 1px solid grey;
@@ -47,16 +47,18 @@
 }
 
 @media (max-width: 1000px) {
-    .order-item{
+    .order-item {
         font-size: 12px;
         grid-template-columns: 0.5fr 2fr 1fr;
         padding: 15px 8px;
     }
-    .order-item select{
+
+    .order-item select {
         padding: 5px;
         font-size: 12px;
     }
-    .order-item img{
+
+    .order-item img {
         width: 40px;
 
     }

@@ -1,6 +1,6 @@
 import pool from '../config/db.js';
 
-// Создание таблицы (выполняется один раз при запуске)
+// Создание таблицы
 export const createFoodTable = async () => {
     const query = `
         CREATE TABLE IF NOT EXISTS food_items
@@ -20,8 +20,6 @@ export const createFoodTable = async () => {
         console.error("Error creating food table:", error.message);
     }
 };
-
-// Функции работы с таблицей food_items
 
 // Добавление нового блюда
 export const createFood = async (food) => {

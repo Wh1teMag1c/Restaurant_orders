@@ -14,7 +14,7 @@
     gap: 20px;
 }
 
-.sidebar-option{
+.sidebar-option {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -25,13 +25,13 @@
     cursor: pointer;
 }
 
-.sidebar-option.active{
+.sidebar-option.active {
     background-color: #fff0ed;
     border-color: #f39c12;
 }
 
-@media (max-width:1000px) {
-    .sidebar-option p{
+@media (max-width: 1000px) {
+    .sidebar-option p {
         display: none;
     }
 }

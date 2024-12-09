@@ -2,23 +2,23 @@ import './MyOrders.css'
 import {StoreContext} from "../../context/StoreContext.jsx";
 import axios from "axios";
 import {assets} from "../../assets/assets.js";
-import {useContext, useEffect, useState} from "react";
+import {useCallback, useContext, useEffect, useState} from "react";
 
 const MyOrders = () => {
 
     const {url, token} = useContext(StoreContext);
     const [data, setData] = useState([]);
 
-    const fetchOrders = async () => {
+    const fetchOrders = useCallback(async () => {
         const response = await axios.post(url + "/api/order/userorders", {}, {headers: {token}});
         setData(response.data.data);
-    }
+    }, [url, token]); // Зависимости: url и token
 
     useEffect(() => {
         if (token) {
             fetchOrders();
         }
-    }, [token])
+    }, [token, fetchOrders]);
 
 
     return (
@@ -32,8 +32,7 @@ const MyOrders = () => {
                             <p>{order.items.map((item, index) => {
                                 if (index === order.items.length - 1) {
                                     return item.name + " x " + item.quantity
-                                }
-                                else{
+                                } else {
                                     return item.name + " x " + item.quantity + ", "
                                 }
                             })}</p>

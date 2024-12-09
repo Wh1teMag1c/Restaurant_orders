@@ -1,6 +1,6 @@
 import pool from "../config/db.js";
 
-// Создание таблицы (выполняется один раз при запуске)
+// Создание таблицы
 export const createUserTable = async () => {
     const query = `
         CREATE TABLE IF NOT EXISTS users (

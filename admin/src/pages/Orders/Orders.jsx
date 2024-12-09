@@ -13,7 +13,7 @@ const Orders = ({url}) => {
         } else {
             console.log("Error");
         }
-    }, [url]); // Добавляем `url` в зависимости
+    }, [url]);
 
     const statusHandler = async (event, orderId) => {
         const response = await axios.post(url + "/api/order/status", {

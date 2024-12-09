@@ -16,8 +16,6 @@ COPY . .
 # Собираем проект
 RUN npm run build
 
-# Проверяем, создана ли директория dist (для отладки)
-RUN [ -d /app/dist ] && echo "Build directory exists" || echo "Build directory does not exist"
 
 # Шаг 2: Используем nginx для запуска собранного проекта
 FROM nginx:alpine
