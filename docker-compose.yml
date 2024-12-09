@@ -61,7 +61,7 @@ services:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
       PGADMIN_DEFAULT_PASSWORD: admin
     ports:
-      - "5050:80"
+      - "5050:80"  # Измените этот порт для HTTPS
     networks:
       - app-network
 
@@ -71,8 +71,11 @@ services:
       - "--api.insecure=true"
       - "--providers.docker=true"
       - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"  # Добавьте secure entrypoint для HTTPS
+      - "--certificatesresolvers.letsencrypt.acme.dnschallenge=true"  # Опция для автоматического обновления SSL сертификатов
     ports:
       - "80:80"
+      - "443:443"  # Прокси HTTPS на 443 порт
       - "8081:8080"
     networks:
       - app-network

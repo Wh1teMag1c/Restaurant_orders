@@ -89,6 +89,7 @@ const removeFromCart = async (req, res) => {
     }
 };
 
+// Очистка данных корзины
 const clearCart = async (req, res) => {
     try {
         const { userId } = req.body;

@@ -10,7 +10,7 @@
 
 body {
     min-height: 100vh;
-    margin-top: 70px; /* Добавить отступ, чтобы содержимое не перекрывалось navbar */
+    margin-top: 70px;
 }
 
 .app-container {

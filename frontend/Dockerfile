@@ -5,7 +5,7 @@ FROM node:20 AS build
 WORKDIR /app
 
 # Копируем package.json и package-lock.json (если есть)
-COPY package.json package-lock.json ./
+COPY package*.json ./
 
 # Устанавливаем зависимости
 RUN npm install --legacy-peer-deps
@@ -15,9 +15,6 @@ COPY . .
 
 # Собираем проект
 RUN npm run build
-
-# Проверяем, создана ли директория build (для отладки)
-RUN [ -d /app/dist ] && echo "Build directory exists" || echo "Build directory does not exist"
 
 # Шаг 2: Используем nginx для запуска собранного проекта
 FROM nginx:alpine
