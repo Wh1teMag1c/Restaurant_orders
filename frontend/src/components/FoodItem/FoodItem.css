@@ -1,0 +1,88 @@
+.food-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Растягивается по высоте */
+    border-radius: 15px;
+    box-shadow: 0 0 10px #00000015;
+    transition: 0.3s;
+    animation: fadeIn 1s;
+}
+
+
+.food-item-image{
+    width: 100%;
+    border-radius: 15px 15px 0 0;
+}
+
+.food-item-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Размещаем элементы с равными промежутками */
+    height: 100%; /* Растягиваем блок на всю высоту */
+    padding: 20px;
+}
+
+.food-item-name-rating{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.food-item-name-rating p {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+    white-space: normal;
+    word-break: break-word;
+    margin-bottom: 10px; /* Отступ между названием и описанием */
+}
+
+.food-item-desc {
+    flex-grow: 1; /* Заставляем описание занимать всё доступное пространство */
+    color: #676767;
+    font-size: 12px;
+    line-height: 1.4;
+    overflow: hidden; /* Скрываем избыточный текст */
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* Ограничиваем описание тремя строками */
+    -webkit-box-orient: vertical;
+    margin: 0; /* Убираем отступы */
+}
+
+.food-item-price {
+    color: black;
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: 10px; /* Добавляем отступ сверху */
+}
+
+.food-item-img-container{
+    position: relative;
+}
+
+.food-item-img-container .add{
+    width: 35px;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.food-item-counter{
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px;
+    border-radius: 50px;
+    background-color: white;
+}
+
+.food-item-counter img{
+    width: 30px;
+}
