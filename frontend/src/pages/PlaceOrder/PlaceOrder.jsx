@@ -6,7 +6,7 @@ import {useContext, useState} from "react";
 
 const PlaceOrder = () => {
 
-    const {getTotalCartAmount, token, food_list, cartItems, url, setCartItems} = useContext(StoreContext);
+    const {getTotalCartAmount, token, food_list, cartItems, setCartItems} = useContext(StoreContext);
     const navigate = useNavigate();
 
     const [data, setData] = useState({
@@ -47,13 +47,13 @@ const PlaceOrder = () => {
 
         try {
             // Отправляем данные заказа
-            let response = await axios.post(url + "/api/order/place", orderData, {
+            let response = await axios.post("/api/order/place", orderData, {
                 headers: {token},
             });
 
             if (response.data.success) {
                 // Очищаем корзину в базе данных
-                await axios.post(url + "/api/cart/clear", {cartItems}, {headers: {token}});
+                await axios.post("/api/cart/clear", {cartItems}, {headers: {token}});
 
                 // Очищаем корзину в состоянии приложения
                 setCartItems({}); // Передайте пустой объект или другую логику для очистки состояния корзины

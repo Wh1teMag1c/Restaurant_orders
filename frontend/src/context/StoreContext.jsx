@@ -7,7 +7,6 @@ export const StoreContext = createContext(null);
 const StoreContextProvider = (props) => {
 
     const [cartItems, setCartItems] = useState({});
-    const url = "http://138.124.51.156:5000";
     const [token, setToken] = useState("");
     const [food_list, setFoodList] = useState([])
 
@@ -18,14 +17,14 @@ const StoreContextProvider = (props) => {
             setCartItems((prev) => ({...prev, [itemId]: prev[itemId] + 1}))
         }
         if (token) {
-            await axios.post(url + "/api/cart/add", {itemId}, {headers: {token}});
+            await axios.post("/api/cart/add", {itemId}, {headers: {token}});
         }
     }
 
     const removeFromCart = async (itemId) => {
         setCartItems((prev) => ({...prev, [itemId]: prev[itemId] - 1}))
         if (token) {
-            await axios.post(url + "/api/cart/remove", {itemId}, {headers: {token}});
+            await axios.post("/api/cart/remove", {itemId}, {headers: {token}});
         }
     }
 
@@ -41,12 +40,12 @@ const StoreContextProvider = (props) => {
     }
 
     const fetchFoodList = async () => {
-        const response = await axios.get(url + "/api/food/list");
+        const response = await axios.get("/api/food/list");
         setFoodList(response.data.data);
     }
 
     const loadCartData = async (token) => {
-        const response = await axios.post(url + "/api/cart/get", {}, {headers: {token}});
+        const response = await axios.post("/api/cart/get", {}, {headers: {token}});
         const cartArray = response.data.cartData; // массив из API
         const cartObject = cartArray.reduce((acc, item) => {
             acc[item.item_id] = item.quantity;
@@ -75,7 +74,6 @@ const StoreContextProvider = (props) => {
         addToCart,
         removeFromCart,
         getTotalCartAmount,
-        url,
         token,
         setToken
     }

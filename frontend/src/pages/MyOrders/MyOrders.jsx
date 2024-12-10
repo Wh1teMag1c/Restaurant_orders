@@ -6,13 +6,13 @@ import {useCallback, useContext, useEffect, useState} from "react";
 
 const MyOrders = () => {
 
-    const {url, token} = useContext(StoreContext);
+    const {token} = useContext(StoreContext);
     const [data, setData] = useState([]);
 
     const fetchOrders = useCallback(async () => {
-        const response = await axios.post(url + "/api/order/userorders", {}, {headers: {token}});
+        const response = await axios.post("/api/order/userorders", {}, {headers: {token}});
         setData(response.data.data);
-    }, [url, token]); // Зависимости: url и token
+    }, [token]);
 
     useEffect(() => {
         if (token) {

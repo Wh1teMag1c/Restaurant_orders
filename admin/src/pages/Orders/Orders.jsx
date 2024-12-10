@@ -4,19 +4,19 @@ import {assets} from "../../assets/assets.js";
 import {useCallback, useEffect, useState} from "react";
 import PropTypes from 'prop-types';
 
-const Orders = ({url}) => {
+const Orders = () => {
     const [orders, setOrders] = useState([]);
     const fetchAllOrders = useCallback(async () => {
-        const response = await axios.get(url + "/api/order/list");
+        const response = await axios.get("/api/order/list");
         if (response.data.success) {
             setOrders(response.data.data);
         } else {
             console.log("Error");
         }
-    }, [url]);
+    }, []);
 
     const statusHandler = async (event, orderId) => {
-        const response = await axios.post(url + "/api/order/status", {
+        const response = await axios.post("/api/order/status", {
             orderId,
             status: event.target.value
         });

@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 const LoginPopup = ({setShowLogin}) => {
 
-    const {url, setToken} = useContext(StoreContext);
+    const {setToken} = useContext(StoreContext);
     const [currState, setCurrState] = useState('Вход');
     const [data, setData] = useState({
         name: "",
@@ -22,11 +22,11 @@ const LoginPopup = ({setShowLogin}) => {
 
     const onLogin = async (event) => {
         event.preventDefault();
-        let newUrl = url;
+        let newUrl = "";
         if (currState === "Вход") {
-            newUrl += "/api/user/login";
+            newUrl = "/api/user/login";
         } else {
-            newUrl += "/api/user/register";
+            newUrl = "/api/user/register";
         }
         const response = await axios.post(newUrl, data);
         if (response.data.success) {

@@ -5,7 +5,6 @@ import Orders from "./pages/Orders/Orders.jsx";
 
 const App = () => {
 
-    const url = "http://138.124.51.156:5000";
     return (
         <div>
             <Navbar/>
@@ -13,7 +12,7 @@ const App = () => {
             <div className="app-content">
                 <Sidebar/>
                 <Routes>
-                    <Route path='/orders' element={<Orders url={url}/>}/>
+                    <Route path='/admin/orders' element={<Orders/>}/>
                 </Routes>
             </div>
         </div>
